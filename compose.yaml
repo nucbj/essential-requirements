@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: 'mariadb:latest'
+    container_name: mariadb_container
+    environment:
+      - 'MYSQL_DATABASE=mydatabase'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=verysecret'
+      - 'MYSQL_USER=myuser'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    command: mysqld --init-file=/docker-entrypoint-initdb.d/init.sql  # 수동으로 init.sql 파일 실행
+    restart: always
+    healthcheck:
+      test: "exit 0"
+      interval: 10s
+      retries: 5

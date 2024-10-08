@@ -1,4 +1,9 @@
-./data
+/data
+.gradle/
+.idea
+!main/.gradle/
+!corekit/.gradle/
+
 
 # Compiled class file
 *.class

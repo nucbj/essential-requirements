@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    datasource:
+      url: jdbc:mysql://localhost:3306/mydatabase
+      username: myuser
+      password: secret
+      driver-class-name: org.mariadb.jdbc.Driver
+  docker:
+    compose:
+      file: ./compose.yaml
