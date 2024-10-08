@@ -3,6 +3,8 @@
 .idea
 !main/.gradle/
 !corekit/.gradle/
+!main/build/
+!corekit/build/
 
 
 # Compiled class file
